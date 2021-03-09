@@ -4,7 +4,8 @@ from PyPDF2 import PdfFileMerger
 import urllib
 i = 1
 merger = PdfFileMerger()
-url = "url/svg/{}"
+url = input("URL with the ending '/svg/{}': ")
+name = input("Name of the file: ")
 while(True):
     try:
         pdf = cairosvg.svg2pdf(url=url.format(i),scale=20)
@@ -14,4 +15,5 @@ while(True):
         print("{} pages".format(i-1))
         break
     i+=1
-merger.write("all.pdf")
+merger.write(name + ".pdf")
+
